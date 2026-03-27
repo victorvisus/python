@@ -1,0 +1,19 @@
+# Python bytecode (archivos compilados que no necesitas subir)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales (MUY IMPORTANTE: pesan mucho y no se suben)
+.venv/
+venv/
+ENV/
+env/
+
+# Archivos de configuración de editores
+.vscode/
+.idea/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+*.exe
