@@ -45,3 +45,24 @@ Ejercicios: Nivel 2
 3 Divide la lista de países en dos listas iguales (si es par; si no, la primera lista tendrá un país más)
 4 Para la lista ['China', 'Russia', 'USA', 'Finland', 'Sweden', 'Norway', 'Denmark'], separa los tres primeros países de los países nórdicos restantes.
 """
+# 3 Encuentra la mediana de las edades (un elemento medio o el promedio de dos elementos medios)
+# 1.- Ordenar la lista
+# 2.- Contar el numero de elementos
+# 2.1.- Si es impar: sacar el del medio
+
+
+ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24, 15, 19, 14, 33, 22, 16]
+edades = sorted(ages)
+numElementos = len(edades)
+print("Edades ordenadas: ", edades, "\ntiene ", numElementos, " elementos")
+
+if numElementos % 2 != 0:
+    print("la lista es impar")
+    mediana = int(numElementos / 2)
+    print("La mediana es: ", edades[mediana])
+else:
+    print("la lista es par")
+    pos1 = int(numElementos / 2) - 1
+    pos2 = int(numElementos / 2)
+    mediana = (edades[pos1] + edades[pos2]) / 2
+    print("La mediana es:  {mediana:.3f}".format(mediana=mediana))
