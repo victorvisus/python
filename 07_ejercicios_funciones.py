@@ -54,6 +54,10 @@ Ejercicios: Nivel 3
 7 Crea una función llamada the_most_populated_countries que devuelva los 10 o 20 países más poblados del mundo, ordenados de mayor a menor.
 """
 
+"""
+El juego de la vida de conway
+Juego de tres en raya
+"""
 
 # 3.2 Escribe una función que verifique si todos los ítems en una lista son únicos.
 ciudades = ["Madrid", "Barcelona", "Valencia", "Sevilla", "Madrid"]
