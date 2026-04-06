@@ -1,3 +1,6 @@
+import json
+from operator import indexOf
+
 """
 Ejercicios: Nivel 1
 1 Declara una función add_two_numbers. Debe aceptar dos parámetros y devolver su suma.
@@ -50,8 +53,8 @@ Ejercicios: Nivel 3
 3 Escribe una función que verifique si todos los ítems en una lista son del mismo tipo de dato.
 4 Escribe una función que verifique si una variable proporcionada es un nombre de variable válido en Python.
 5 Accede al archivo de datos countries-data.py.
-6 Crea una función llamada the_most_spoken_languages que devuelva las 10 o 20 lenguas más habladas en el mundo, ordenadas de mayor a menor.
-7 Crea una función llamada the_most_populated_countries que devuelva los 10 o 20 países más poblados del mundo, ordenados de mayor a menor.
+    # Crea una función llamada the_most_spoken_languages que devuelva las 10 o 20 lenguas más habladas en el mundo, ordenadas de mayor a menor.
+    # Crea una función llamada the_most_populated_countries que devuelva los 10 o 20 países más poblados del mundo, ordenados de mayor a menor.
 """
 
 """
@@ -89,3 +92,151 @@ def eliminarItem(lista, item):
 
 if comprobarLista(ciudades):
     print("La lista no es única.", comprobarLista(ciudades)[1])
+
+
+# Escribe una funcion que verifique que todos los items en una lista son del mismo tipo de dato
+def verificarTipo(lista):
+    tipo = type(lista[0])  # Tomamos el tipo del primer elemento como referencia
+    i = 1
+    print(i, type(lista[0]))
+    sonIgualesTodos = True
+    while type(lista[i]) is tipo and i < len(lista):
+        if i < len(lista) - 1:
+            print(i, type(lista[i]))
+            i = i + 1
+
+        else:
+            break
+    else:
+        sonIgualesTodos = False
+    return sonIgualesTodos
+
+
+lista1 = [False, False, False, False, False, True]
+print(verificarTipo(lista1))
+
+
+# 5 Accede al archivo de datos countries-data.py.
+def accederArchivoTxt(dataFile):
+    try:
+        with open(dataFile, "r", encoding="utf-8") as f:
+            contenido = f.read()
+        print("lectura ok")
+        return contenido
+    except FileNotFoundError:
+        print(f"El archivo {dataFile} no se encontró.")
+    except Exception as e:
+        print(f"Ocurrió un error al leer el archivo: {e}")
+
+
+rutaArchivo = "./data/countries.py"
+contenidoArchivo = accederArchivoTxt(rutaArchivo)
+
+
+def accederArchivoJson(dataFile):
+    try:
+        with open(dataFile, "r", encoding="utf-8") as f:
+            contenido = json.load(f)
+        print("lectura ok")
+        return contenido
+    except FileNotFoundError:
+        print(f"El archivo {dataFile} no se encontró.")
+    except Exception as e:
+        print(f"Ocurrió un error al leer el archivo: {e}")
+
+
+# Crea una función llamada the_most_spoken_languages que devuelva las 10 o 20 lenguas más habladas en el mundo, ordenadas de mayor a menor.
+def the_most_spoken_languages():
+    # iterar 10 o 20 veces sobre la lista de idiomas más hablados, y extraer en cada iteraccion el idioma más hablado.
+    listIdiomas = list(crearListaIdiomas(paises))
+    conteoIdiomas = dict()
+    for idioma in listIdiomas:
+        for pais in paises:
+            if idioma in pais["languages"]:
+                if (
+                    idioma in conteoIdiomas
+                ):  # si está ese idioma en el diccionario de conteo, le sumamos 1 al conteo
+                    conteoIdiomas[idioma] = conteoIdiomas[idioma] + 1
+                else:
+                    conteoIdiomas[idioma] = 1
+    # ya tengo el dicionario conteoIdiomas con el número de países que hablan cada idioma, ahora busco el idioma con el conteo máximo
+    idiomaMax = 0
+    listaIdiomasMasHablados = []
+    cont = 0
+    while cont < 10:
+        for idioma in listIdiomas:
+            if conteoIdiomas[idioma] > idiomaMax:
+                idiomaMax = conteoIdiomas[idioma]
+                listaIdiomasMasHablados.append(
+                    {"idioma": idioma, "conteo": conteoIdiomas[idioma]}
+                )
+
+        listIdiomas.remove(idioma)
+
+        cont += 1
+    return listaIdiomasMasHablados
+
+
+def crearListaIdiomas(paises):
+    idiomas = set()  # un set no permite elementos duplicados, así que es ideal para contar idiomas distintos
+    for pais in paises:
+        for idioma in pais["languages"]:
+            idiomas.add(idioma)
+    return list(idiomas)
+
+
+print(crearListaIdiomas(accederArchivoJson("./data/countries-data.json")))
+# Crea una función llamada the_most_populated_countries que devuelva los 10 o 20 países más poblados del mundo, ordenados de mayor a menor.
+"""
+Propuesta de solución:
+Propuesta de solución:
+1. acceder a través de la llamada a acceder_contenido...
+2. comenzar con un máximo = 0.
+3. iterar, examinando en cada iteración, el valor de la población para ese país, si es mayor, el máximo se cambia.
+4. una vez iterado todo el diccionario, se quita ese país,
+5. se repite el proceso con el diccionario modificado, hasta completar 10 iteraciones
+"""
+
+
+def the_most_populated_countries(paises):
+    poblacionMax = 0
+    listaPaisesMasPoblados = []
+    cont = 0
+    while cont < 10:
+        for pais in paises:
+            if pais["population"] > poblacionMax:
+                poblacionMax = pais["population"]
+
+        # print("añadimos: ", pais["name"])
+        listaPaisesMasPoblados.append(pais)
+        paises.remove(pais)
+        poblacionMax = 0
+        cont += 1
+    return listaPaisesMasPoblados
+
+
+# ejecucion ej. 4 y 5 //////////////////////////////////////////////////////////
+rutaArchivo = "./data/countries-data.json"
+paises = accederArchivoJson(rutaArchivo)
+
+
+idiomasMasPoblados = the_most_populated_countries(paises)
+for pais in idiomasMasPoblados:
+    print(
+        indexOf(idiomasMasPoblados, pais) + 1,
+        pais["name"],
+        "con una población de",
+        pais["population"],
+        "habitantes",
+    )
+
+
+paisesMasPoblados = the_most_populated_countries(paises)
+for pais in paisesMasPoblados:
+    print(
+        indexOf(paisesMasPoblados, pais) + 1,
+        pais["name"],
+        "con una población de",
+        pais["population"],
+        "habitantes",
+    )
