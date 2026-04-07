@@ -1,3 +1,7 @@
+import math
+import os
+import subprocess
+
 """
 💻 Ejercicios - Día 3
 1 Declara una variable entera que represente tu edad
@@ -14,10 +18,15 @@
     El perímetro del triángulo es 12
 6 Pide al usuario la longitud y la anchura de un rectángulo. Calcula su área (Área = largo x ancho) y su perímetro (Perímetro = 2 x (largo + ancho)).
 7 Pide al usuario el radio de un círculo. Calcula su área (Área = pi x r x r) y su circunferencia (Circunferencia = 2 x pi x r), con pi = 3.14.
+"""
+
+"""
 8 Calcula la pendiente, la intersección en x y la intersección en y de y = 2x - 2.
 9 La pendiente se calcula como (m = (y2 - y1) / (x2 - x1)). Encuentra la pendiente y la distancia euclídea entre los puntos (2, 2) y (6, 10).
 10 Compara las pendientes obtenidas en los ejercicios 8 y 9.
 11 Calcula el valor de y para y = x^2 + 6x + 9. Prueba con distintos valores de x y encuentra cuándo y es 0.
+"""
+""" Ejercicios normales
 12 Encuentra la longitud de 'python' y 'dragon', y realiza una comparación ficticia.
 13 Usa el operador and para comprobar si tanto 'python' como 'dragon' contienen 'on'.
 14 En la oración I hope this course is not full of jargon, usa el operador in para comprobar si contiene la palabra jargon.
@@ -41,9 +50,6 @@
    4 1 4 16 64
    5 1 5 25 125
 """
-
-import os
-import subprocess
 
 """
 Supongamos que me dan una hora, ejemplo: 14:04 y una cantidad de minutos:
@@ -152,6 +158,50 @@ def calculaPrimetroTriangulo():
 
 def calculaAreaRectangulo():
     print("---- Calcula el área de un rectángulo")
+    largo = int(input("Introduce el largo del rectangulo: "))
+    ancho = int(input("Introduce el ancho del rectangulo: "))
+    area = largo * ancho
+    # print(f"El area del rectangulo es {area}")
+    return area
+
+
+"""
+7 Pide al usuario el radio de un círculo. Calcula su área (Área = pi x r x r) y su circunferencia (Circunferencia = 2 x pi x r), con pi = 3.14.
+"""
+
+
+def calculaAreaCirculo():
+    radio = int(input("Introduce el radio del circulo: "))
+    area = math.pi * pow(radio, 2)
+    return area
+
+
+"""
+8 Calcula la pendiente, la intersección en x y la intersección en y de y = 2x - 2.
+"""
+
+
+def calculaCosas():
+    return "pa rato...., vengo a aprender programación, no matemáticas profundas..."
+
+
+"""
+12 Encuentra la longitud de 'python' y 'dragon', y realiza una comparación ficticia.
+"""
+
+
+def comparacionFicticia():
+    print("No entiendo para que sirve esto...")
+
+    palabra1 = "Python"
+    palabra2 = "Dragon"
+    res = len(palabra1) != len(palabra2)
+    return res
+
+
+"""
+13 Usa el operador and para comprobar si tanto 'python' como 'dragon' contienen 'on'.
+"""
 
 
 def appInit():
@@ -159,12 +209,16 @@ def appInit():
         print(
             "\n-- Ejercicios ---------------------------------------------------------\n",
             "-- Elije una Opcion a ejecutar --\n",
-            "-- 1.- Sumar horas\n",
-            "-- 2.- Decalarar variables complejas\n",
-            "-- 4.- Calcular area triangulo\n",
-            "-- 5.- Calcular perimetro triangulo\n",
+            "--  1.- Sumar horas\n",
+            "--  2.- Decalarar variables complejas\n",
+            "--  4.- Calcular area triangulo\n",
+            "--  5.- Calcular perimetro triangulo\n",
+            "--  6.- Calcular área de un rectángulo\n",
+            "--  7.- Calcular área de un círculo\n",
+            "--  8.- Calcular la pendiente y demás cosas... (incluyo 9, 10 y 11)\n",
+            "-- 12.- Comparación ficticia\n",
             "--\n",
-            "-- 0.- Salir\n",
+            "--  0.- Salir\n",
             "-------------------------------------------------------------------------\n",
         )
         try:
@@ -191,6 +245,36 @@ def appInit():
                 limpiar_consola()
                 print("Ejecutando: Perímetro triángulo...")
                 calculaPrimetroTriangulo()
+
+                appInit()
+            elif op == 6:
+                limpiar_consola()
+                print("Ejecutando: Área de rectangulo...")
+                # calculaAreaRectangulo()
+                print(f"El area del rectangulo es {calculaAreaRectangulo()}")
+
+                appInit()
+            elif op == 7:
+                limpiar_consola()
+                print("Ejecutando: Área de círculo...")
+                # calculaAreaRectangulo()
+                print(f"El area del rectangulo es {calculaAreaCirculo()}")
+
+                appInit()
+            elif op == 8:
+                limpiar_consola()
+                print("Calculando la pendiente, la intersección, etc..etc...")
+                # calculaAreaRectangulo()
+                print(f"La pendiente, la intersección, estarán {calculaCosas()}")
+
+                appInit()
+            elif op == 12:
+                limpiar_consola()
+                print("Ejecutando: Comparación ficticia")
+                # calculaAreaRectangulo()
+                print(
+                    f"La comparación ficticia de las longitudes de 'python' y 'dragon' es {comparacionFicticia()}"
+                )
 
                 appInit()
             elif op == 0:
