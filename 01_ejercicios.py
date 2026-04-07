@@ -86,10 +86,6 @@ b = 4
 print("---- Suma num_one y num_two y asigna el resultado a la variable total")
 total = a + b
 """
-5 El círculo tiene un radio de 30 metros.
----- Calcula el área del círculo y asígnala a la variable _area_of_circle_
----- Calcula la circunferencia del círculo y asígnala a la variable _circum_of_circle_
----- Pide el radio al usuario y calcula el área.
 6 Usa la función integrada input() para obtener nombre, apellido, país y edad del usuario y almacena los valores en las variables correspondientes
 7 Ejecuta help('keywords') en el intérprete de Python o en un archivo para comprobar las palabras reservadas (keywords) de Python
 """
