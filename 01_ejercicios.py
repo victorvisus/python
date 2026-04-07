@@ -1,8 +1,50 @@
 """
+Ejercicio: Nivel 1
+Crea una carpeta day_2 dentro de la carpeta 30DaysOfPython. Dentro de esa carpeta crea un archivo variables.py
+Añade un comentario: 'Día 2: 30 Days of Python programming'
+Declara una variable first_name y asígnale un valor
+Declara una variable last_name y asígnale un valor
+Declara una variable full_name y asígnale un valor
+Declara una variable country y asígnale un valor
+Declara una variable city y asígnale un valor
+Declara una variable age y asígnale un valor
+Declara una variable year y asígnale un valor
+Declara una variable is_married y asígnale un valor
+Declara una variable is_true y asígnale un valor
+Declara una variable is_light_on y asígnale un valor
+Declara múltiples variables en una sola línea
+"""
+
+first_name = "Brenda"
+lasta_name = "García"
+full_name = first_name + " " + lasta_name
+country = "Colombia"
+city = "Bogotá"
+age = 21
+year = 2021
+is_married = False
+is_true = True
+is_light_on = True
+"""
 Ejercicio: Nivel 2
-1 Usa la función integrada type() para comprobar el tipo de las variables que declaraste
-2 Usa la función len() para calcular la longitud de la variable first_name
-3 Compara la longitud de las variables first_name y last_name
+"""
+# 1 Usa la función integrada type() para comprobar el tipo de las variables que declaraste
+print(type(first_name))
+print(type(lasta_name))
+print(type(full_name))
+print(type(country))
+print(type(city))
+print(type(age))
+print(type(year))
+print(type(is_married))
+print(type(is_true))
+print(type(is_light_on))
+# 2 Usa la función len() para calcular la longitud de la variable first_name
+print(len(first_name))
+
+# 3 Compara la longitud de las variables first_name y last_name
+
+"""
 4 Declara las variables num_one = 5 y num_two = 4
 ---- Suma num_one y num_two y asigna el resultado a la variable total
 ---- Resta num_two de num_one y asigna el resultado a la variable diff
@@ -46,6 +88,7 @@ print("El radio es: ", radio)
 print("El area es: ", _area_of_circle)
 print("La circunferencia es: ", _circum_of_circle)
 
+print("\n-- Ejercicio 6 -------------------------------------------")
 usrRadio = float(input("¿Cuál es tu radio?\n"))
 _area_of_circle = piValor * pow(float(usrRadio), 2)
 _circum_of_circle = piValor * (usrRadio * 2)
