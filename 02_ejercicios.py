@@ -76,11 +76,11 @@ def sumarHoras():
 
     # Paso 3.1: sumar los minutos a los minutos iniciales
     minutosFin = minutosIniciales + minutosAsumar
-    print("Minutos finales: ", minutosFin)
+    # print("Minutos finales: ", minutosFin)
 
     # Paso 4: convertir los minutos finales a horas y minutos
     horaFinal = minutosFin / 60
-    print("hora final: ", horaFinal)
+    # print("hora final: ", horaFinal)
 
     """ Opcion larga
    minutosFinal = horaFinal - int(horaFinal)
@@ -88,14 +88,12 @@ def sumarHoras():
    """
     """ Opcion con % """
     minutosFinal = minutosFin % 60
-    print("minutos finales: ", minutosFinal)
-
-    print("hora final: ", int(horaFinal), ":", minutosFinal)
+    # print("hora final: ", int(horaFinal), ":", minutosFinal)
 
     """Cambiamos de dia"""
     # Cambiamos las horas para que sean de 0 a 23
     horaFinal = int(horaFinal) % 24
-    print("hora final: ", int(horaFinal), ":", minutosFinal)
+    # print("hora final: ", int(horaFinal), ":", minutosFinal)
 
     horaInicialSeparada[0] = str(horaFinal)
     horaInicialSeparada[1] = str(minutosFinal)  # minutosFinal
@@ -204,8 +202,82 @@ def comparacionFicticia():
 """
 
 
+def buscarOn():
+    cad = "on"
+    if cad in "python" and cad in "dragon":
+        return True
+    return False
+
+
+"""
+14 En la oración I hope this course is not full of jargon, usa el operador in para comprobar si contiene la palabra jargon.
+"""
+
+
+def buscarJArgon():
+    frase = "I hope this course is not full of jargon"
+    if "jargon" in frase:
+        return True
+    return False
+
+
+"""
+15 Comprueba que ni 'dragon' ni 'python' contienen 'on'.
+"""
+
+
+def noContienenOn():
+    return "pendiente de implementar"
+
+
+"""
+16 Encuentra la longitud de 'python', convierte la longitud a float y luego a string.
+"""
+
+
+def longitudPython():
+    return "pendiente de implementar"
+
+
+"""
+17 Los números pares son divisibles por 2 con resto 0. ¿Cómo comprobar en Python si un número es par o impar?
+"""
+
+
+def esParOImpar():
+    return "pendiente de implementar"
+
+
+"""
+18 Comprueba si la división entera de 7 entre 3 es igual al valor entero de 2.7.
+"""
+
+
+def divisionEntera():
+    return "pendiente de implementar"
+
+
+"""
+19 Comprueba si el tipo de '10' es igual al tipo de 10.
+"""
+
+
+def comprobarTipo():
+    return "pendiente de implementar"
+
+
+"""
+20 Comprueba si int('9.8') es igual a 10.
+"""
+
+
+def esIgual():
+    return "pendiente de implementar"
+
+
 def appInit():
-    while True:
+    op = 99
+    while op != 0:
         print(
             "\n-- Ejercicios ---------------------------------------------------------\n",
             "-- Elije una Opcion a ejecutar --\n",
@@ -217,6 +289,14 @@ def appInit():
             "--  7.- Calcular área de un círculo\n",
             "--  8.- Calcular la pendiente y demás cosas... (incluyo 9, 10 y 11)\n",
             "-- 12.- Comparación ficticia\n",
+            "-- 13.- ¿Esta 'on' en 'python' y en 'dragon'?\n",
+            "-- 14.- ¿Contiene 'jargon'?\n",
+            "-- 15.- Comprobar que ni 'dragon' ni 'python' contienen 'on'\n",
+            "-- 16.- Encuentra la longitud de 'python', convierte la longitud a float y luego a string\n",
+            "-- 17.- Los números pares son divisibles por 2 con resto 0. ¿Como comprobar en Python si un número es par o impar?\n",
+            "-- 18.- Comprueba si la divisió entera de 7 entre 3 es igual al valor entero de 2.7\n",
+            "-- 19.- Comprueba si el tipo de '10' es igual al tipo de 10\n",
+            "-- 20.- Comprueba si int('9.8') es igual a 10\n",
             "--\n",
             "--  0.- Salir\n",
             "-------------------------------------------------------------------------\n",
@@ -228,61 +308,97 @@ def appInit():
                 print("Ejecutando: Sumar horas...")
                 sumarHoras()
 
-                appInit()
             elif op == 2:
                 limpiar_consola()
                 print("Ejecutando: Variables complejas...")
                 ej02()
 
-                appInit()
             elif op == 4:
                 limpiar_consola()
                 print("Ejecutando: Área triángulo...")
                 calculaAreaTriangulo()
 
-                appInit()
             elif op == 5:
                 limpiar_consola()
                 print("Ejecutando: Perímetro triángulo...")
                 calculaPrimetroTriangulo()
 
-                appInit()
             elif op == 6:
                 limpiar_consola()
                 print("Ejecutando: Área de rectangulo...")
-                # calculaAreaRectangulo()
                 print(f"El area del rectangulo es {calculaAreaRectangulo()}")
 
-                appInit()
             elif op == 7:
                 limpiar_consola()
                 print("Ejecutando: Área de círculo...")
-                # calculaAreaRectangulo()
                 print(f"El area del rectangulo es {calculaAreaCirculo()}")
 
-                appInit()
             elif op == 8:
                 limpiar_consola()
                 print("Calculando la pendiente, la intersección, etc..etc...")
-                # calculaAreaRectangulo()
                 print(f"La pendiente, la intersección, estarán {calculaCosas()}")
 
-                appInit()
             elif op == 12:
                 limpiar_consola()
                 print("Ejecutando: Comparación ficticia")
-                # calculaAreaRectangulo()
                 print(
                     f"La comparación ficticia de las longitudes de 'python' y 'dragon' es {comparacionFicticia()}"
                 )
 
-                appInit()
+            elif op == 13:
+                limpiar_consola()
+                print("Buscando 'on' en 'python' y en 'dragon'")
+                print(f"¿Esta 'on' en 'python' y en 'dragon'? {buscarOn()}")
+
+            elif op == 14:
+                limpiar_consola()
+                print("Buscando 'jargon' en 'I hope this course is not full of jargon'")
+                print(f"¿Contiene 'jargon'? {buscarJArgon()}")
+
+            elif op == 15:
+                limpiar_consola()
+                print("Buscando 'on' en 'python' y 'dragon'")
+                print(f"¿Ni 'dragon' ni 'python' contienen 'on'? {noContienenOn()}")
+
+            elif op == 16:
+                limpiar_consola()
+                print("Buscando la longitud de 'python'")
+                print(f"La longitud de 'python' es {longitudPython()}")
+
+            elif op == 17:
+                limpiar_consola()
+                print("Comprobando si un número es par o impar")
+                print(f"¿Es par o impar? {esParOImpar()}")
+
+            elif op == 18:
+                limpiar_consola()
+                print(
+                    "Comprobando si la divisió entera de 7 entre 3 es igual al valor entero de 2.7"
+                )
+                print(f"¿Es igual? {divisionEntera()}")
+
+            elif op == 19:
+                limpiar_consola()
+                print("Comprobando si el tipo de '10' es igual al tipo de 10")
+                print(f"¿Es igual? {comprobarTipo()}")
+
+            elif op == 20:
+                limpiar_consola()
+                print("Comprobando si int('9.8') es igual a 10")
+                print(f"¿Es igual? {esIgual()}")
+
             elif op == 0:
                 limpiar_consola()
                 print("Saliendo...")
-            break
+            else:
+                print("\n[!] Esa opción no existe en el menú.")
+
+            # 3. PAUSA CLAVE
+            # Si no es 0, esperamos a que el usuario lea el resultado
+            if op != 0:
+                input("\nPresiona ENTER para volver al menú...")
         except ValueError as e:
-            print("Elije una opcion correcta", e)
+            print("Elije una opcion correcta\n", e)
 
 
 def limpiar_consola():
