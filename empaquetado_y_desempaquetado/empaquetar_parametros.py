@@ -19,7 +19,7 @@ print(sum_all(1, 2, 3, 4, 5, 6, 7))  # 28
 # Empaquetar diccionarios
 def packing_person_info(**kwargs):
     # comprobar el tipo de kwargs: es un dict
-    # print(type(kwargs))
+    print(type(kwargs))
     # imprimir los pares clave-valor
     for key in kwargs:
         print(f"{key} = {kwargs[key]}")
@@ -27,3 +27,8 @@ def packing_person_info(**kwargs):
 
 
 print(packing_person_info(name="Asabeneh", country="Finland", city="Helsinki", age=250))
+
+newDict = {"name": "jjjjj", "country": "Finland", "city": "Helsinki", "age": 250}
+print(
+    packing_person_info(**newDict)
+)  # para pasarle un diccionario, hay que ponerlo los ** delante

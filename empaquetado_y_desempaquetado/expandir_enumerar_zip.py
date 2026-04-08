@@ -11,6 +11,7 @@ Si necesitamos los índices de una lista, usamos la función integrada enumerate
 countries = ["Finland", "Sweden", "Norway", "Denmark", "Iceland"]
 for index, item in enumerate([20, 30, 40]):
     print(index, item)
+
 for index, i in enumerate(countries):
     print("hola")
     if i == "Finland":
@@ -25,3 +26,9 @@ for f, v in zip(fruits, vegetables):
     fruits_and_veges.append({"fruit": f, "veg": v})
 
 print(fruits_and_veges)
+
+""" Unir listas usando el operador + """
+""" fruits = ["banana", "orange", "mango", "lemon"]
+vegetables = ["Tomato", "Potato", "Cabbage", "Onion", "Carrot"]
+fruits_and_veges = fruits + vegetables
+print(fruits_and_veges) """
