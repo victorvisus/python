@@ -1,0 +1,10 @@
+Pongo alguna ññññ y tildes á ó
+This is an example to show how to open a file and read.
+This is the second line of the text.I love pythonEste texto debe añadirse al finalEste texto debe añadirse al final
+Este texto debe añadirse al final
+Este texto debe añadirse al final
+Este texto debe añadirse al final
+Este texto debe añadirse al final
+Este texto debe añadirse al final
+Este texto debe añadirse al final
+Este texto debe añadirse al final
