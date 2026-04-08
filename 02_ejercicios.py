@@ -227,7 +227,9 @@ def buscarJArgon():
 
 
 def noContienenOn():
-    return "pendiente de implementar"
+    if "on" not in "dragon" and "on" not in "python":
+        return False
+    return True
 
 
 """
@@ -236,7 +238,10 @@ def noContienenOn():
 
 
 def longitudPython():
-    return "pendiente de implementar"
+    long = len("python")
+    long = float(long)
+    long = str(long)
+    return "El type de la longitud es: " + str(type(long))
 
 
 """
@@ -245,7 +250,8 @@ def longitudPython():
 
 
 def esParOImpar():
-    return "pendiente de implementar"
+    resp = "Para comprobar si un número es par o impar en Python, la forma más común es utilizar el operador módulo (%), que devuelve el residuo de una división; si el resultado de numero % 2 es 0, el número es par, y si es distinto de 0, es impar. "
+    return resp
 
 
 """
@@ -254,7 +260,13 @@ def esParOImpar():
 
 
 def divisionEntera():
-    return "pendiente de implementar"
+    a = 7
+    b = 3
+    res = a // b
+    print(f"El resultado de la division entera es: {res}")
+    if res == 2.7:
+        return True
+    return False
 
 
 """
@@ -263,7 +275,9 @@ def divisionEntera():
 
 
 def comprobarTipo():
-    return "pendiente de implementar"
+    if type("10") is type(10):
+        return True
+    return False
 
 
 """
@@ -272,7 +286,9 @@ def comprobarTipo():
 
 
 def esIgual():
-    return "pendiente de implementar"
+    if int("9.8") == 10:
+        return True
+    return False
 
 
 def appInit():
