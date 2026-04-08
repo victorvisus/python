@@ -54,20 +54,44 @@ hecho - 32 Dada la lista ['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon'], ún
 
 """
 
+import os
+import subprocess
+
+challenge = "Coding For All"
+
+
+# 1 Une las cadenas 'Thirty', 'Days', 'Of', 'Python' en 'Thirty Days Of Python'.
+def unirCadenas():
+    return " ".join(["Thirty", "Days", "Of", "Python"])
+
+
+# 3 Declara la variable company y asígnale el valor inicial "Coding For All".
+company = "Coding For All"
+
+
+# 5 Usa len() y print() para mostrar la longitud de la cadena company.
+def medirCadena():
+    return len(company)
+
+
 # 19 Crea una sigla a partir de 'Coding For All'.
 # cortar en " " y añadir cada elemento a un array, despues extraer el primer indice de cada elemento str del array
-print("\n-- 19 Crea una sigla a partir de 'Coding For All'. ----")
-challenge = "Coding For All"
-siglaArray = challenge.split(" ")
-sigla = siglaArray[0][0] + siglaArray[1][0] + siglaArray[2][0]
-print(sigla)
+def crearSiglas():
+    # print("\n-- 19 Crea una sigla a partir de 'Coding For All'. ----")
+
+    siglaArray = challenge.split(" ")
+    siglas = siglaArray[0][0] + siglaArray[1][0] + siglaArray[2][0]
+    return siglas
+
 
 # 28 ¿La cadena 'Coding For All' empieza con la subcadena 'Coding'?
+def comprobarInicioCadena():
+    if challenge.startswith("Coding"):
+        print("Si")
+    else:
+        print("No")
 
-print(
-    "\n¿La cadena 'Coding For All' empieza con la subcadena 'Coding'?",
-    challenge.startswith("Coding"),
-)
+
 # 29 ¿La cadena 'Coding For All' termina con la subcadena 'coding'?
 print(
     "\n¿La cadena 'Coding For All' termina con la subcadena 'coding'?",
@@ -79,3 +103,78 @@ print(
 print("\n-- 32 Separa la cadena. ----")
 palabras = ["Django", "Flask", "Bottle", "Pyramid", "Falcon"]
 print(f"Cadena: {' '.join(palabras)}")
+
+
+def appInit():
+    op = 99
+    while op != 0:
+        print(
+            "\n-- Ejercicios ---------------------------------------------------------\n",
+            "-- Elije una Opcion a ejecutar --\n",
+            "-- 1.- Unir cadenas.\n",
+            "-- 5.- Usa len() para mostrar la longitud de la cadena company.\n",
+            "-- 19.- Crea una sigla a partir de 'Coding For All'.\n",
+            "-- 28.- ¿La cadena 'Coding For All' empieza con la subcadena 'Coding'?.\n",
+            "--\n",
+            "--  0.- Salir\n",
+            "-------------------------------------------------------------------------\n",
+        )
+        try:
+            op = int(input("Elije una opcion: "))
+            if op == 1:
+                limpiar_consola()
+                print(
+                    "Uniendo 'Thirty', 'Days', 'Of', 'Python' en 'Thirty Days Of Python'...."
+                )
+                print("La cadena final es: ", unirCadenas())
+
+            elif op == 5:
+                limpiar_consola()
+                print("Midiendo...")
+                print(
+                    "La longitud de la cadena company = 'Coding For All' es de: ",
+                    medirCadena(),
+                )
+
+            elif op == 19:
+                limpiar_consola()
+                print("Creando siglas de 'Coding For All'...")
+                print("las Siglas son:", crearSiglas())
+
+            elif op == 28:
+                limpiar_consola()
+                print("Comprobando si 'Coding For All' empieza con 'Coding'...")
+                print(
+                    "¿La cadena 'Coding For All' empieza con la subcadena 'Coding'?\n",
+                    comprobarInicioCadena(),
+                )
+
+            elif op == 0:
+                limpiar_consola()
+                print("Saliendo...")
+            else:
+                print("\n[!] Esa opción no existe en el menú.")
+
+            # 3. PAUSA CLAVE
+            # Si no es 0, esperamos a que el usuario lea el resultado
+            if op != 0:
+                input("\nPresiona ENTER para volver al menú...")
+        except ValueError as e:
+            print("Elije una opcion correcta\n", e)
+
+
+def limpiar_consola():
+    try:
+        # 'nt' es el nombre interno de Windows en Python
+        if os.name == "nt":
+            # Ejecuta 'cls' de forma segura
+            subprocess.run("cls", shell=True)
+        else:
+            # Ejecuta 'clear' para Linux/Mac
+            subprocess.run("clear", shell=True)
+    except Exception:
+        # Si por algo falla, imprimimos saltos de línea para "limpiar" visualmente
+        print("\n" * 50)
+
+
+appInit()

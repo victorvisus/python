@@ -286,7 +286,7 @@ def comprobarTipo():
 
 
 def esIgual():
-    if int("9.8") == 10:
+    if int(9.8) == 10:
         return True
     return False
 
